@@ -1,0 +1,25 @@
+{
+ "description": "Demonstrates how to use the t_release plugin.",
+ "version": "1.1.4",
+ "repository": "https://github.com/ThanCoder/novelv3",
+ "changelog_url": "https://raw.githubusercontent.com/ThanCoder/novelv3/refs/heads/main/CHANGELOG.md",
+ "readme_url": "https://raw.githubusercontent.com/ThanCoder/novelv3/refs/heads/main/README.md",
+ "cover_url": "https://raw.githubusercontent.com/ThanCoder/novelv3/refs/heads/main/assets/cover.png",
+ "license_url": "https://raw.githubusercontent.com/ThanCoder/novelv3/refs/heads/main/LICENSE",
+ "versions": [
+  {
+   "version": "1.1.4",
+   "plaform": "linux",
+   "url": "",
+   "description": "",
+   "date": 1742562064363
+  },
+  {
+   "version": "1.1.4",
+   "plaform": "android",
+   "url": "",
+   "description": "",
+   "date": 1742562064363
+  }
+ ]
+}

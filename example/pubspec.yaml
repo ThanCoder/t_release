@@ -1,0 +1,33 @@
+name: t_release_example
+description: "Demonstrates how to use the t_release plugin."
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+version: 1.1.4
+repository: https://github.com/ThanCoder/t_release
+
+environment:
+  sdk: ^3.7.0
+dependencies:
+  cupertino_icons: ^1.0.8
+  flutter:
+    sdk: flutter
+  flutter_markdown: ^0.7.6+2
+  t_release:
+    path: ../
+  yaml: ^3.1.3
+  dio: ^5.8.0+1
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+
+t_release:
+  platfoms: android,linux 
+  cover_path: "assets/cover.webp"
+#   changelog_url: "changelog url"
+#   readme_url: "readme url"
+#   cover_url: ""
