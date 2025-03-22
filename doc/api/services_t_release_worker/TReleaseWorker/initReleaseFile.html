@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the initReleaseFile method from the TReleaseWorker class, for the Dart programming language.">
+  <title>initReleaseFile method - TReleaseWorker class - t_release_worker library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">t_release</a></li>
+    <li><a href="../../services_t_release_worker">services&#47;t_release_worker.dart</a></li>
+    <li><a href="../../services_t_release_worker/TReleaseWorker-class.html">TReleaseWorker</a></li>
+    <li class="self-crumb">initReleaseFile method</li>
+  </ol>
+  <div class="self-name">initReleaseFile</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="services_t_release_worker&#47;TReleaseWorker-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">initReleaseFile</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">initReleaseFile</span>(<wbr>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; initReleaseFile() async {
+  try {
+    Map&lt;String, dynamic&gt; release = {};
+    final file = File(&#39;$currentPath&#47;release.json&#39;);
+    if (await file.exists()) {
+      release = jsonDecode(await file.readAsString());
+    }
+    List&lt;dynamic&gt; versions = release[&#39;versions&#39;] ?? [];
+
+    String desc = pubspec[&#39;description&#39;] ?? &#39;&#39;;
+    String version = pubspec[&#39;version&#39;] ?? &#39;&#39;;
+    String repository = pubspec[&#39;repository&#39;] ?? &#39;&#39;;
+    &#47;&#47;set
+    release[&#39;description&#39;] = desc;
+    release[&#39;version&#39;] = version;
+    release[&#39;repository&#39;] = repository;
+
+    release[&#39;changelog_url&#39;] = &quot;&quot;;
+    release[&#39;readme_url&#39;] = &quot;&quot;;
+    release[&#39;cover_url&#39;] = &quot;&quot;;
+    var genReleasePlatforms = [Platform.operatingSystem];
+    &#47;&#47;auto
+    if (repository.isNotEmpty) {
+      &#47;&#47;auto ထည့်မယ်
+      release[&#39;changelog_url&#39;] = getRawUrl(repository, &#39;CHANGELOG.md&#39;);
+      release[&#39;readme_url&#39;] = getRawUrl(repository, &#39;README.md&#39;);
+      release[&#39;license_url&#39;] = getRawUrl(repository, &#39;LICENSE&#39;);
+    }
+    &#47;&#47;custom t_release
+    final releasePubspecMap = pubspec[&#39;t_release&#39;];
+    if (releasePubspecMap != null) {
+      final coverPath = releasePubspecMap[&#39;cover_path&#39;];
+      final coverUrl = releasePubspecMap[&#39;cover_url&#39;];
+
+      if (releasePubspecMap[&#39;changelog_url&#39;] != null) {
+        release[&#39;changelog_url&#39;] = releasePubspecMap[&#39;changelog_url&#39;];
+      }
+      if (releasePubspecMap[&#39;readme_url&#39;] != null) {
+        release[&#39;readme_url&#39;] = releasePubspecMap[&#39;readme_url&#39;];
+      }
+      &#47;&#47;cover path
+      if (coverPath != null &amp;&amp; coverPath.toString().isNotEmpty) {
+        if (repository.isNotEmpty) {
+          release[&#39;cover_url&#39;] = getRawUrl(repository, coverPath.toString());
+        }
+      }
+      &#47;&#47;cover url
+      if (coverUrl != null &amp;&amp; coverUrl.toString().isNotEmpty) {
+        release[&#39;cover_url&#39;] = coverUrl.toString();
+      }
+      &#47;&#47;platforms
+      if (releasePubspecMap[&#39;platfoms&#39;] != null) {
+        String platforms =
+            releasePubspecMap[&#39;platfoms&#39;] ?? Platform.operatingSystem;
+        genReleasePlatforms = platforms.split(&#39;,&#39;);
+      }
+    }
+
+    &#47;&#47;version မတူညီရင် ထည့်မယ်
+    if (versions.isEmpty || versions.first[&#39;version&#39;] != version) {
+      &#47;&#47;add version
+      for (var plaform in genReleasePlatforms) {
+        versions.insert(0, {
+          &quot;version&quot;: version,
+          &quot;platform&quot;: plaform,
+          &quot;url&quot;: &quot;&quot;,
+          &quot;description&quot;: &quot;&quot;,
+          &quot;date&quot;: DateTime.now().millisecondsSinceEpoch,
+        });
+      }
+    }
+    &#47;&#47;version list
+    release[&#39;versions&#39;] = versions;
+
+    &#47;&#47;save
+    await file.writeAsString(JsonEncoder.withIndent(&#39; &#39;).convert(release));
+  } catch (e) {
+    print(&#39;initReleaseFile: ${e.toString()}&#39;);
+  }
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">t_release</a></li>
+    <li><a href="../../services_t_release_worker">t_release_worker</a></li>
+    <li><a href="../../services_t_release_worker/TReleaseWorker-class.html">TReleaseWorker</a></li>
+    <li class="self-crumb">initReleaseFile method</li>
+</ol>
+
+    <h5>TReleaseWorker class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    t_release
+      0.0.1
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

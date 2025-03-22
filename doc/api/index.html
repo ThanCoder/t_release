@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="t_release API docs, for the Dart programming language.">
+  <title>t_release - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li class="self-crumb">t_release package</li>
+  </ol>
+  <div class="self-name">t_release</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <h2 id="trelease-dart-package">TRelease dart package</h2>
+<ul>
+<li>app version control system</li>
+<li>github is hosting</li>
+<li>release.json</li>
+<li>auto add CHANGELOG.md</li>
+</ul>
+<h2 id="auto-release-file-command">Auto Release File Command</h2>
+<ul>
+<li>auto create release.json file</li>
+</ul>
+<pre class="language-bash"><code class="language-bash">dart run t_release:main init 
+</code></pre>
+<h2 id="custom-pubspecyaml">Custom pubspec.yaml</h2>
+<pre class="language-yaml"><code class="language-yaml">t_release:
+  platfoms: android,linux 
+  cover_path: "assets/cover.webp" 
+  changelog_url: "changelog url"
+  readme_url: "readme url" 
+  cover_url: "" #is will override -&gt; cover_path:[path]
+</code></pre>
+<h2 id="version">Version</h2>
+<pre class="language-Dart"><code class="language-Dart">final isLatest = await TReleaseVersionServices.instance.isLatestVersion('1.0.1');
+
+print(isLatest);
+final version = await TReleaseVersionServices.instance.getLatestVersion('1.0.1');
+print(version);
+
+final versionList = await TReleaseVersionServices.instance.getVersionList();
+print(versionList);
+
+</code></pre>
+<h2 id="release">Release</h2>
+<pre class="language-Dart"><code class="language-Dart">final changeLogText = await TReleaseServices.instance.getChangeLog();
+print(changeLogText);
+
+final descriptionText = await TReleaseServices.instance.getDescription();
+print(descriptionText);
+
+final licenseText = await TReleaseServices.instance.getLicense();
+print(licenseText);
+
+final readmeText = await TReleaseServices.instance.getReadme();
+print(readmeText);
+
+final versionText = await TReleaseServices.instance.getVersion();
+print(versionText);
+
+TReleaseModel? release = await TReleaseServices.instance.getRelease();
+print(release);
+</code></pre>
+<h2 id="generated-releasejson">Generated Release.json</h2>
+<pre class="language-Json"><code class="language-Json">{
+ "description": "Demonstrates how to use the t_release plugin.",
+ "version": "1.1.4",
+ "repository": "https://github.com/ThanCoder/t_release",
+ "changelog_url": "https://raw.githubusercontent.com/ThanCoder/t_release/refs/heads/main/CHANGELOG.md",
+ "readme_url": "https://raw.githubusercontent.com/ThanCoder/t_release/refs/heads/main/README.md",
+ "cover_url": "https://raw.githubusercontent.com/ThanCoder/t_release/refs/heads/main/assets/cover.webp",
+ "license_url": "https://raw.githubusercontent.com/ThanCoder/t_release/refs/heads/main/LICENSE",
+ "versions": [
+  {
+   "version": "1.1.4",
+   "platform": "linux",
+   "url": "",
+   "description": "",
+   "date": 1742602599887
+  },
+  {
+   "version": "1.1.4",
+   "platform": "android",
+   "url": "",
+   "description": "",
+   "date": 1742602599887
+  }
+ ]
+}
+</code></pre>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="constants">
+  <span class="name"><a href="constants">constants</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="t_release_model">
+  <span class="name"><a href="models_t_release_model">models/t_release_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="t_release_version_model">
+  <span class="name"><a href="models_t_release_version_model">models/t_release_version_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="t_release_services">
+  <span class="name"><a href="services_t_release_services">services/t_release_services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="t_release_version_services">
+  <span class="name"><a href="services_t_release_version_services">services/t_release_version_services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="t_release_worker">
+  <span class="name"><a href="services_t_release_worker">services/t_release_worker</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+        </dl>
+      </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li class="self-crumb">t_release package</li>
+</ol>
+
+    <h5 class="hidden-xs"><span class="package-name">t_release</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="constants">constants</a></li>
+      <li><a href="models_t_release_model">models/t_release_model</a></li>
+      <li><a href="models_t_release_version_model">models/t_release_version_model</a></li>
+      <li><a href="services_t_release_services">services/t_release_services</a></li>
+      <li><a href="services_t_release_version_services">services/t_release_version_services</a></li>
+      <li><a href="services_t_release_worker">services/t_release_worker</a></li>
+</ol>
+
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+</main>
+<footer>
+  <span class="no-break">
+    t_release
+      0.0.1
+  </span>
+  
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

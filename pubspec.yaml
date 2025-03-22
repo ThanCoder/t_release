@@ -1,6 +1,6 @@
 name: t_release
 description: app version control system.it will generate release.json file.
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/ThanCoder/t_release
 environment:
   sdk: ^3.7.0
@@ -9,8 +9,6 @@ environment:
 dependencies:
   args: ^2.5.0
   dio: ^5.8.0+1
-  flutter:
-    sdk: flutter
   yaml: ^3.1.3
 
 dev_dependencies:
