@@ -9,17 +9,17 @@
  "versions": [
   {
    "version": "1.1.4",
-   "plaform": "linux",
+   "platform": "linux",
    "url": "",
    "description": "",
-   "date": 1742563663613
+   "date": 1742602599887
   },
   {
    "version": "1.1.4",
-   "plaform": "android",
+   "platform": "android",
    "url": "",
    "description": "",
-   "date": 1742563663613
+   "date": 1742602599887
   }
  ]
 }

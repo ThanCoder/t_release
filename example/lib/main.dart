@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:t_release/t_release_services.dart';
+import 'package:t_release/services/t_release_services.dart';
 
 void main() {
   runApp(const MyApp());
