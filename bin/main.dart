@@ -1,4 +1,4 @@
-import 'package:t_release/t_release_worker.dart';
+import 'package:t_release/services/t_release_worker.dart';
 
 void main(List<String> args) {
   if (args.isEmpty) {
@@ -11,5 +11,4 @@ void main(List<String> args) {
       break;
     }
   }
-  // print('command not found!');
 }

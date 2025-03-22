@@ -93,7 +93,7 @@ class TReleaseWorker {
         for (var plaform in genReleasePlatforms) {
           versions.insert(0, {
             "version": version,
-            "plaform": plaform,
+            "platform": plaform,
             "url": "",
             "description": "",
             "date": DateTime.now().millisecondsSinceEpoch,
