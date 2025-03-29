@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:t_release/models/t_release_model.dart';
 import 'package:t_release/services/t_release_services.dart';
-import 'package:t_release/services/t_release_version_services.dart';
 
-void main() {
+void main() async {
+  await TReleaseServices.instance.initial('release.json');
+  // await TReleaseServices.instance.initial(
+  //   'https://raw.githubusercontent.com/ThanCoder/t_release/refs/heads/main/example/release.json',
+  // );
   runApp(const MyApp());
 }
 
@@ -23,32 +25,34 @@ class _MyAppState extends State<MyApp> {
   }
 
   void init() async {
-    final isLatest = await TReleaseVersionServices.instance.isLatestVersion(
-      '1.0.1',
-    );
+    // TReleaseServices.instance.initial(source);
 
-    print(isLatest);
-    final version = await TReleaseVersionServices.instance.getLatestVersion(
-      '1.0.1',
-    );
-    print(version);
+    // final isLatest = await TReleaseVersionServices.instance.isLatestVersion(
+    //   '1.0.1',
+    // );
 
-    final versionList = await TReleaseVersionServices.instance.getVersionList();
-    print(versionList);
+    // print(isLatest);
+    // final version = await TReleaseVersionServices.instance.getLatestVersion(
+    //   '1.0.1',
+    // );
+    // print(version);
 
-    //release
-    final changeLogText = await TReleaseServices.instance.getChangeLog();
-    print(changeLogText);
-    final descriptionText = await TReleaseServices.instance.getDescription();
-    print(descriptionText);
-    final licenseText = await TReleaseServices.instance.getLicense();
-    print(licenseText);
-    final readmeText = await TReleaseServices.instance.getReadme();
-    print(readmeText);
-    final versionText = await TReleaseServices.instance.getVersion();
-    print(versionText);
-    TReleaseModel? release = await TReleaseServices.instance.getRelease();
-    print(release);
+    // final versionList = await TReleaseVersionServices.instance.getVersionList();
+    // print(versionList);
+
+    // //release
+    // final changeLogText = await TReleaseServices.instance.getChangeLog();
+    // print(changeLogText);
+    // final descriptionText = await TReleaseServices.instance.getDescription();
+    // print(descriptionText);
+    // final licenseText = await TReleaseServices.instance.getLicense();
+    // print(licenseText);
+    // final readmeText = await TReleaseServices.instance.getReadme();
+    // print(readmeText);
+    // final versionText = await TReleaseServices.instance.getVersion();
+    // print(versionText);
+    // TReleaseModel? release = await TReleaseServices.instance.getRelease();
+    // print(release);
   }
 
   @override

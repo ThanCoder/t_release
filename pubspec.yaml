@@ -1,6 +1,6 @@
 name: t_release
 description: app version control system.it will generate release.json file.
-version: 0.0.2
+version: 0.0.3
 repository: https://github.com/ThanCoder/t_release
 environment:
   sdk: ^3.7.0

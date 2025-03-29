@@ -1,3 +1,8 @@
+## 0.0.3
+
+## Fixed && Added
+- `TReleaseServices.instance.initial` added
+
 ## 0.0.2
 - add doc
 
