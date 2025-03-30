@@ -1,3 +1,8 @@
+## 0.0.4
+
+## Fixed
+- `TReleaseVersionServices.instance.isLatestVersion` error fixed
+
 ## 0.0.3
 
 ## Fixed && Added

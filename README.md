@@ -11,6 +11,17 @@
 dart run t_release:main init 
 ```
 
+## flutter main init
+```Dart
+void main() async {
+  await TReleaseServices.instance.initial('release.json');
+  // await TReleaseServices.instance.initial(
+  //   'https://raw.githubusercontent.com/ThanCoder/t_release/refs/heads/main/example/release.json',
+  // );
+  runApp(const MyApp());
+}
+```
+
 ## Custom pubspec.yaml
 ```yaml
 t_release:

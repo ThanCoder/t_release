@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:t_release/services/t_release_services.dart';
+import 'package:t_release/services/t_release_version_services.dart';
 
 void main() async {
   await TReleaseServices.instance.initial('release.json');
@@ -25,7 +26,8 @@ class _MyAppState extends State<MyApp> {
   }
 
   void init() async {
-    // TReleaseServices.instance.initial(source);
+    final res = await TReleaseVersionServices.instance.isLatestVersion('1.1.4');
+    print(res);
 
     // final isLatest = await TReleaseVersionServices.instance.isLatestVersion(
     //   '1.0.1',

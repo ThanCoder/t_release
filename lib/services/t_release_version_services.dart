@@ -13,7 +13,7 @@ class TReleaseVersionServices {
     if (versions.isEmpty) return true;
     for (var version in versions) {
       if (version.platform == Platform.operatingSystem &&
-          currentVersion.compareTo(version.version) == -1) {
+          currentVersion.compareTo(version.version) == 1) {
         //is version update
         res = true;
         break;
